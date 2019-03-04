@@ -1,0 +1,127 @@
+body{
+  text-align: center;
+}
+.logo{
+  width:350px;
+  height:350px;
+  background-image: url(../img/logo.jpg);
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background-size: cover;
+  -webkit-filter:grayscale(100%);
+  opacity: 0.15;
+  z-index: -1;
+}
+.title{
+  font-weight: 700;
+  margin-top:50px;
+  font-size: 50px;
+}
+.subtitle{
+  width:500px;
+  margin: auto;
+}
+.subtitle span{
+  color: rgba(25, 181, 254, 1);
+}
+.formcont{
+  width: 60%;
+  margin: auto;
+  /* background-color: red; */
+  margin-top: 40px;
+}
+input{
+  height:40px;
+  line-height: 40px;
+  margin-top: 30px;
+  width: 35%;
+  padding-left:10px;
+  box-sizing: border-box;
+  border-bottom: 3px solid rgba(25, 181, 254, 0.4);
+  background-color:rgba(255,255,255,0.5);
+  transition: 0.1s ease-out;
+  font-size: 14px;
+}
+input:hover{
+  border-bottom: 3px solid rgba(25,181,254,1);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+input:focus{
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 3px solid rgba(25,181,254,1);
+}
+#hostel:hover{
+  border-bottom: 0px solid rgba(25,181,254,0);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#hostel:focus{
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 0px solid rgba(25,181,254,0);
+}
+#hostel{
+  border-bottom: 3px solid rgba(25, 181, 254, 0);
+}
+#mail,#contact{
+  width:70.5%;
+  margin-right: 5px;
+  transition: 0.1s ease-out;
+}
+.dropdown{
+  width: 70%;
+  height: 40px;
+  line-height: 40px;
+  text-transform: capitalize;
+  border:3px solid rgba(25, 181, 254, 0.4);
+  margin: auto;
+  margin-top:20px;
+  background-color:rgba(255,255,255,0.5);
+  transition:0.2s ease-out;
+  overflow-y: hidden;
+  text-align: left;
+}
+.dtitle{
+  padding-left: 10px;
+  padding-left: 10px;
+  margin-top: 0px;
+  color:rgba(117,117,117,1);
+}
+.dropdown:hover{
+    border: 3px solid rgba(25,181,254,1);
+}
+.dropdown-opt{
+  width:70%;
+  height:160px;
+  line-height: 40px;
+  background-color: #e6e6e6;
+  margin: auto;
+  overflow-y: scroll;;
+  border:3px solid #e6e6e6;
+  text-align: left;
+  text-indent: 10px;
+  transform: scaleY(0);;
+  display: none;
+  transition: 0.1s ease-out;
+  position: relative;
+}
+.di:hover{
+  background-color: white;
+  color: rgba(25,181,254,1);
+  cursor: pointer;
+}
+
+.error{
+  min-width: 200px;
+  min-height:40px;
+  max-width: 600px;
+  height: auto;
+  line-height: 40px;
+  max-width: auto;
+  background-color: red;
+  color: white;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 40px;
+}

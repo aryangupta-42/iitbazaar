@@ -30,7 +30,7 @@
   transition:height 0.2s ease-out;
   content:'';
   height: 0px;
-  width: 100%;
+  width: 110%;
   position: absolute;
   z-index: -1;
   top: 50%;
@@ -39,7 +39,7 @@
   background-color: rgba(25, 181, 254, 1);
 }
 .btn:hover::before{
-  height: 130px;
+  height: 160px;
 }
 .btn:hover{
   color: white;

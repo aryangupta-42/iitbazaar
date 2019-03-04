@@ -69,5 +69,16 @@ input:focus{
   line-height: 40px;
   border-radius: 100%;
   border:3px solid rgba(0,0,0,0.6);
-
+}
+.error{
+  min-width: 200px;
+  min-height:40px;
+  height: auto;
+  line-height: 40px;
+  max-width: auto;
+  background-color: red;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 40px;
 }

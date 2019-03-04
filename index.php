@@ -1,3 +1,26 @@
+<?php
+  require 'core/dbconnect.php';
+  require 'core/config.php';
+  require 'core/login.php';
+
+  $err = [false, "", "",""];
+  $login = new Log;
+  if(isset($_POST['loginbtn'])){
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+    $email = cln($email);
+    $pass = cln($pass);
+
+    $err = $login->login($email, $pass, $db);
+
+  }
+  if($err[0] == false && $err[3] != ""){
+    session_start();
+    $_SESSION['user'] = $err[3];
+    session_write_close();
+    header("location: home/index.php");
+  }
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -21,14 +44,19 @@
     </div>
     <div class="loginspace">
       <form class="loginform" action="#" method="post">
-        <input id="logmail" type="email" name="email" value="" placeholder="Enter your institute email id" required><br>
-        <input id="logpass" type="password" name="pass" value="" placeholder="password" required><br>
+        <input id="logmail" type="email" name="email" value="<?php echo($email) ?>" placeholder="Enter your institute email id" required><br>
+        <input id="logpass" type="password" name="pass" value="<?php echo($pass) ?>" placeholder="password" required><br>
         <button type="submit" name="loginbtn" class="btn" id="loginbtn">Login</button>
         <div class="or">
           OR
         </div>
-        <button type="button" class="btn">Register</button>
+        <button type="button" class="btn" id="regbtn">Register</button>
       </form>
+      <?php
+        if($err[0] == true){
+          echo("<div class = 'error'>".$err[2]."</div>");
+        }
+       ?>
     </div>
     <?php require 'ui/footer.php' ?>
   </body>
