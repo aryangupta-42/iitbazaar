@@ -36,8 +36,7 @@
     $qrydel->execute([
       ':lid'=>$lid
     ]);
-    unlink("../img/listings".$lid."jpg");
-
+    unlink("../img/listings/".$lid.".jpg");
   }
   // echo(count($res));
 

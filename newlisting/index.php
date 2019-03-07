@@ -28,7 +28,7 @@
     $lid = uniqid('list',true);
     $lid = str_replace('.','l',$lid);
     // $info = pathinfo($_FILES['itemimage']['name']);
-    try{
+    // try{
       $upimg = $img->fromFile('../img/temp.jpg');
       $imgheight = $upimg->getHeight();
       $imgwidth = $upimg->getWidth();
@@ -44,10 +44,9 @@
       $y2 = $imgheight - $y1;
       $edittedimg = $upimg->crop($x1,$y1,$x2,$y2);
 
-      $edittedimg->toFile('../img/listings/'.$lid.'.jpg');
-    }catch(Exception $err){
-      echo $err->getMessage();
-    }
+    // }catch(Exception $err){
+      // echo $err->getMessage();
+    // }
     $name = $_POST['itemname'];
     $description = $_POST['itemdesc'];
     $price = $_POST['itemprice'];
@@ -68,6 +67,7 @@
         ':seller'=>$userdet[0],
         ':sid'=>$_SESSION['user']
       ]);
+      $edittedimg->toFile('../img/listings/'.$lid.'.jpg');
       $error = "Listing uploaded successfully";
     }else{
       $error = "You've already uploaded this listing";
