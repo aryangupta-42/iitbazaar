@@ -57,7 +57,7 @@
     $res = $qry->fetch(PDO::FETCH_ASSOC);
     $f = 0;
     if(!isset($res['lid'])){
-      $qry = $db->prepare('INSERT INTO listings (lid, name, description, price, pickup, status, seller) VALUES (:lid, :name, :description, :price, :pickup, :status, :seller)');
+      $qry = $db->prepare('INSERT INTO listings (lid, name, description, price, pickup, status, seller, sid) VALUES (:lid, :name, :description, :price, :pickup, :status, :seller, :sid)');
       $qry->execute([
         ':lid'=>$lid,
         ':name'=>$name,
@@ -65,7 +65,8 @@
         ':price'=>$price,
         ':pickup'=>$pickup,
         ':status'=>"active",
-        ':seller'=>$userdet[0]
+        ':seller'=>$userdet[0],
+        ':sid'=>$_SESSION['user']
       ]);
       $error = "Listing uploaded successfully";
     }else{

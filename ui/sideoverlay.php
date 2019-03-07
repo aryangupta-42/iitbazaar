@@ -9,6 +9,8 @@
       <div class="userhostel"><?php echo($userdet[4]) ?></div>
       <div class="userrating">Rating: <?php echo($userdet[6]) ?></div>
       <div class="usersoldno">Products Sold: <?php echo($userdet[7]) ?></div>
+      <div class="userid" style="display:none"><?php echo($_SESSION['user']) ?>
+      </div>
     </div>
   </div>
   <div class="navmenu">
