@@ -15,7 +15,7 @@
   <div class="navmenu">
     <div class="navbtn" id="purchases"><i class="fas fa-shopping-cart fa-1x"></i><span>Purchases</span></div>
     <div class="navbtn" id="activelistings"><i class="fas fa-list-ul fa-1x"></i><span>Active Listings</span></div>
-    <div class="navbtn" id="oldlistings"><i class="fas fa-history fa-1x"></i><span>Old Listings</span></div>
+    <div class="navbtn" id="oldlistings"><i class="fas fa-history fa-1x"></i><span>Sold Listings</span></div>
     <div class="navbtn" id="newlisting"><i class="fas fa-plus-square fa-1x"></i><span>New Listing</span></div>
     <div class="navbtn" id="settings"><i class="fas fa-cog fa-1x"></i><span>Settings</span></div>
   </div>

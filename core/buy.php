@@ -18,6 +18,19 @@
       ':bid'=>$bid,
       ':lid'=>$lid
     ]);
+    $qry2 = $db->prepare("SELECT * FROM listings WHERE lid = :lid");
+    $qry2->execute([':lid'=>$lid]);
+    $res2 = $qry2->fetch(PDO::FETCH_ASSOC);
+    $sid = $res2['sid'] ;
+    $qry2 = $db->prepare("SELECT * FROM users WHERE uid = :uid LIMIT 1");
+    $qry2->execute([':uid'=>$sid]);
+    $res2 = $qry2->fetch(PDO::FETCH_ASSOC);
+    $soldnoup = 1+$res2['soldno'];
+    $qry2 = $db->prepare("UPDATE users SET soldno = :soldno WHERE uid = :uid");
+    $qry2->execute([
+      ':soldno'=>$soldnoup,
+      ':uid'=>$sid
+    ]);
     echo("done");
   }
  ?>
