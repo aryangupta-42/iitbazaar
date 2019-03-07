@@ -14,8 +14,8 @@
   $user = new User;
   $userdet = $user->getDetails($_SESSION['user'], $db);
 
-  $qry = $db->prepare("SELECT * FROM listings WHERE status = :status AND bid = :bid ORDER BY publishdate DESC");
-  $qry->execute([':status'=>"purchased", ':bid'=>$_SESSION['user']]);
+  $qry = $db->prepare("SELECT * FROM listings WHERE status = :status AND sid = :sid ORDER BY publishdate DESC");
+  $qry->execute([':status'=>"purchased", ':sid'=>$_SESSION['user']]);
   // echo(count($res));
 
 
@@ -26,7 +26,7 @@
     <meta charset="utf-8">
     <title>Home</title>
     <?php require '../ui/includes.php'; ?>
-    <script src="../js/purchase.js" charset="utf-8"></script>
+    <script src="../js/oldlisting.js" charset="utf-8"></script>
     <link rel="stylesheet" href="../css/purchase.css">
   </head>
   <body>
@@ -37,17 +37,20 @@
           echo("no posts");
         }else{
           $qry2 = $db->prepare("SELECT * FROM users WHERE uid = :uid LIMIT 1");
-          $qry2->execute([':uid'=>$res['sid']]);
-          $sellerdet = $qry2->fetch(PDO::FETCH_ASSOC);
+          $qry2->execute([':uid'=>$res['bid']]);
+          $buyerdet = $qry2->fetch(PDO::FETCH_ASSOC);
           echo("
           <div class='listingcard' style='background-image:url(../img/listings/".$res['lid'].".jpg)'>
             <div class='listingdet'>
               <div class='listingtextcont'>
-              <div class='sellername' style='display:none'>"
-                .$sellerdet['firstname']." ".$sellerdet['lastname'].
+              <div class='buyerusername' style='display:none'>"
+                .$buyerdet['username'].
               "</div>
-              <div class='sellercon' style='display:none'>"
-                .$sellerdet['contactdet'].
+              <div class='buyername' style='display:none'>"
+                .$buyerdet['firstname']." ".$buyerdet['lastname'].
+              "</div>
+              <div class='buyercon' style='display:none'>"
+                .$buyerdet['contactdet'].
               "</div>
                 <div class='itemname'>"
                   .$res['name'].
@@ -102,18 +105,18 @@
               <b>Item Pickup Location:</b> <span></span>
             </div>
             <div class="listingdetcardsellerinfo">
-              <div class="listingdetcardseller">
-                <b>Seller:</b> <span></span>
+              <div class="listingdetcardbuyer">
+                <b>Buyer:</b> <span></span>
               </div>
-              <div class="listingdetcardsellername">
-                <b>Seller Name:</b> <span></span>
+              <div class="listingdetcardbuyername">
+                <b>Buyer Name:</b> <span></span>
               </div>
-              <div class="listingdetcardsellercontact">
-                <b>Seller Contact Number: </b><span></span>
+              <div class="listingdetcardbuyercontact">
+                <b>Buyer Contact Number: </b><span></span>
               </div>
             </div>
             <div class="error">
-              The seller should be getting in touch with you shortly. However if that does not happen, feel free to use the above contact details to reach out to the seller.
+              Please coordinate with the buyer using the above given details to choose a suitable time to handover the product to the buyer and recieve your payment.
             </div>
           </div>
         </div>
