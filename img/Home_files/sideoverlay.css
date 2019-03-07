@@ -1,0 +1,82 @@
+.sideoverlay{
+  width: 220px;
+  height: auto;
+  bottom: 0px;
+  background-color: rgba(36, 37, 42, 0.9);
+  position: fixed;
+  left:0px;
+  top: 60px;
+  color:white;
+  overflow-y: scroll;
+}
+.userimg{
+  width:150px;
+  height: 150px;
+  border-radius: 100%;
+  margin: auto;
+  background-color: #e6e6e6;
+  margin-top: 40px;
+}
+.userdet{
+  width:100%;
+  height: auto;
+  text-indent:10px;
+  box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.2);
+  background-color: rgba(36, 37, 42, 1);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: auto;
+  margin-top: 30px;
+  line-height: 30px;
+}
+.username{
+  color: rgba(25, 181, 254, 1);
+}
+.userfullname{
+  text-transform: capitalize;;
+}
+.navmenu{
+  overflow-y: scroll;
+}
+.navbtn{
+  width: 100%;
+  height: 50px;;
+  line-height: 50px;;
+  /* background-color: red; */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size:18px;
+  position: relative;
+}
+.navbtn::before{
+  content: '';
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 8px;
+}
+.navbtn:hover::before{
+  background-color: rgba(36, 37, 42, 1);
+}
+.navbtn i{
+  margin-left: 25px;
+  margin-right: 10px;
+}
+#logoutbtn{
+  /* background-color: red; */
+  background-color: transparent;
+  width: 100%;
+  line-height: 40px;
+  height: 40px;
+  color: white;
+  text-align: left;
+  margin: auto;
+  font-size: 18px;
+}
+#logoutbtn i{
+  margin-right: 10px;
+  margin-left:7px;
+}
