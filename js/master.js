@@ -20,6 +20,7 @@ $(document).ready(function(){
     var seller = $(this).find('.seller').find('span').html();
     var pick = $(this).find('.pickuplocation').html();
     lid = $(this).find('.lid').html();
+    $('.listingid').val(lid);
     $('.listingdetcard').css('display','block');
     $('.listingdetdispoverlay').css('display','block');
     $('.listingdetcardimg').css('background-image',img);

@@ -11,6 +11,10 @@
     header('Location: ../index.php');
     session_write_close();
   }
+  if(isset($_SESSION['admin'])){
+    header('Location: ../admin/index.php');
+    session_write_close();
+  }
   $_SESSION['loc'] = "Home";
   $user = new User;
   $userdet = $user->getDetails($_SESSION['user'], $db);

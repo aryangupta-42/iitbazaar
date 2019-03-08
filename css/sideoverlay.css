@@ -71,12 +71,16 @@
   /* background-color: red; */
   background-color: transparent;
   width: 100%;
-  line-height: 40px;
-  height: 40px;
+  line-height: 48px;
+  display: block;
+  height:48px;
   color: white;
   text-align: left;
   margin: auto;
   font-size: 18px;
+}
+#logoutbtn:hover::before{
+  height: 200px;
 }
 #logoutbtn i{
   margin-right: 10px;
