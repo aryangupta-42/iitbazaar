@@ -41,6 +41,13 @@
     $uqry->execute([':status'=>$newstatus, ':lid'=>$lid]);
     header("location: ../home");
   }
+  if(isset($_POST['delbtn'])){
+    $lid = $_POST['lid'];
+    $dqry = $db->prepare("DELETE FROM listings WHERE lid = :lid");
+    $dqry->execute([':lid'=>$lid]);
+    unlink("../img/listings/".$lid.".jpg");
+    header("location: ../home");
+  }
 
  ?>
 <!DOCTYPE html>
@@ -178,6 +185,7 @@
               <button type="submit" class="btn" id="blockbtn" name="actbtn">
                 Block/Unblock Listing
               </button>
+              <button type="submit" id="blockbtn" class="btn" name="delbtn">Delete Listing</button>
             </form>
             <div class="error">
               <!-- You Cannot purchase your own item. -->
