@@ -16,6 +16,8 @@
   margin: auto;
   background-color: #e6e6e6;
   margin-top: 40px;
+  background-size: cover;
+  background-position: 0px -10px;
 }
 .userdet{
   width:100%;

@@ -1,6 +1,6 @@
 <div class="sideoverlay">
   <div class="userinfo">
-    <div class="userimg">
+    <div class="userimg" style="background-image:url('../img/users/<?php echo($userdet[8]) ?>')">
     </div>
     <div class="userdet">
       <div class="username">@<?php echo($userdet[0]) ?></div>

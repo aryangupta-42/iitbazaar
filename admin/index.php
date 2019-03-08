@@ -11,12 +11,12 @@
     header('Location: ../index.php');
     session_write_close();
   }
-  $_SESSION['loc'] = "purchases";
+  $_SESSION['loc'] = "Admin";
   $user = new User;
   $userdet = $user->getDetails($_SESSION['user'], $db);
 
-  $qry = $db->prepare("SELECT * FROM listings WHERE status = :status AND bid = :bid ORDER BY publishdate DESC");
-  $qry->execute([':status'=>"purchased", ':bid'=>$_SESSION['user']]);
+  $qry = $db->prepare("SELECT * FROM listings WHERE status = :status ORDER BY publishdate DESC");
+  $qry->execute([':status'=>"active"]);
   // echo(count($res));
 
 
@@ -27,29 +27,21 @@
     <meta charset="utf-8">
     <title>Home</title>
     <?php require '../ui/includes.php'; ?>
-    <script src="../js/purchase.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="../css/purchase.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="../js/home.js" charset="utf-8"></script>
   </head>
   <body>
-    <div class="listingcont">
+    <div class="listingcont1">
       <?php
       while($res = $qry->fetch(PDO::FETCH_ASSOC)){
         if(count($res)== 0){
           echo("no posts");
         }else{
-          $qry2 = $db->prepare("SELECT * FROM users WHERE uid = :uid LIMIT 1");
-          $qry2->execute([':uid'=>$res['sid']]);
-          $sellerdet = $qry2->fetch(PDO::FETCH_ASSOC);
           echo("
           <div class='listingcard' style='background-image:url(../img/listings/".$res['lid'].".jpg)'>
             <div class='listingdet'>
               <div class='listingtextcont'>
-              <div class='sellername' style='display:none'>"
-                .$sellerdet['firstname']." ".$sellerdet['lastname'].
-              "</div>
-              <div class='sellercon' style='display:none'>"
-                .$sellerdet['contactdet'].
-              "</div>
                 <div class='itemname'>"
                   .$res['name'].
                 "</div>
@@ -102,19 +94,14 @@
             <div class="listingdetcardpickup">
               <b>Item Pickup Location:</b> <span></span>
             </div>
-            <div class="listingdetcardsellerinfo">
-              <div class="listingdetcardseller">
-                <b>Seller:</b> <span></span>
-              </div>
-              <div class="listingdetcardsellername">
-                <b>Seller Name:</b> <span></span>
-              </div>
-              <div class="listingdetcardsellercontact">
-                <b>Seller Contact Number: </b><span></span>
-              </div>
+            <div class="listingdetcardseller">
+              <b>Seller:</b> <span></span>
             </div>
+            <button class="btn" id="buynowbtn">
+              Buy Now
+            </button>
             <div class="error">
-              The seller should be getting in touch with you shortly. However if that does not happen, feel free to use the above contact details to reach out to the seller.
+              <!-- You Cannot purchase your own item. -->
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@
     session_destroy();
     header("Location: ../index.php");
   }
+  $_SESSION['loc'] = "Upload a listing";
   $user = new User;
   $userdet = $user->getDetails($_SESSION['user'], $db);
   $flag = 0;

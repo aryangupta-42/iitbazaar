@@ -10,15 +10,19 @@
     $pass = $_POST['pass'];
     $email = cln($email);
     $pass = cln($pass);
-
     $err = $login->login($email, $pass, $db);
-
   }
   if($err[0] == false && $err[3] != ""){
     session_start();
     $_SESSION['user'] = $err[3];
-    session_write_close();
-    header("location: home/index.php");
+    if($_POST['email'] == "admin@iitd.ac.in"){
+      $_SESSION['admin'] = "admin";
+      session_write_close();
+      header("location: admin/index.php");
+    }else{
+      session_write_close();
+      header("location: home/index.php");
+    }
   }
  ?>
 <!DOCTYPE html>

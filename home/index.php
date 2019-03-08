@@ -11,6 +11,7 @@
     header('Location: ../index.php');
     session_write_close();
   }
+  $_SESSION['loc'] = "Home";
   $user = new User;
   $userdet = $user->getDetails($_SESSION['user'], $db);
 

@@ -11,6 +11,7 @@
     header('Location: ../index.php');
     session_write_close();
   }
+  $_SESSION['loc'] = "active listings";
   $user = new User;
   $userdet = $user->getDetails($_SESSION['user'], $db);
   $qry = $db->prepare("SELECT * FROM listings WHERE status = :status AND sid = :sid ORDER BY publishdate DESC");
