@@ -7,3 +7,4 @@ All the code is complete to most extent, but it is not hosted anywhere so i will
 Please do check back here on the 13th for an updated readme file.
 The design document and research document will be available here shortly :
 https://drive.google.com/drive/folders/1Qjqe_8tstjJCtIBq52XquIAkeIocvV_Y
+I'm adding a ui folder in the images (img) folder in which static screenshots and short of clip of the site functioning can be viewed
