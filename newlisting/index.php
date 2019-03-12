@@ -10,6 +10,7 @@
   if(isset($_POST['logoutbtn'])){
     session_unset();
     session_destroy();
+    $flag = 0;
     header("Location: ../index.php");
   }
   $_SESSION['loc'] = "Upload a listing";

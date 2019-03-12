@@ -1,0 +1,97 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Mar 11, 2019 at 03:30 PM
+-- Server version: 5.6.33
+-- PHP Version: 7.0.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `iitbazaar`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listings`
+--
+
+CREATE TABLE `listings` (
+  `lid` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(400) NOT NULL,
+  `price` int(5) NOT NULL,
+  `pickup` varchar(40) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `seller` varchar(100) NOT NULL,
+  `buyer` varchar(100) NOT NULL,
+  `pickupdate` varchar(50) NOT NULL,
+  `publishdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `sid` varchar(100) NOT NULL,
+  `bid` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `listings`
+--
+
+INSERT INTO `listings` (`lid`, `name`, `description`, `price`, `pickup`, `status`, `seller`, `buyer`, `pickupdate`, `publishdate`, `sid`, `bid`) VALUES
+('list5c866de7de7b98l48532241', 'Item 1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qu', 10000, 'location 1', 'active', 'user1', '', '', '2019-03-11 14:20:13', 'user5c866cac65f550u83249111', ''),
+('list5c866e765e6c04l69255040', 'item 2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ', 50500, 'location 2', 'active', 'user2', '', '', '2019-03-11 14:20:43', 'user5c866cc9c7f492u04570183', ''),
+('list5c8670284a00c3l75218905', 'item 3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur', 30303, 'location 3', 'active', 'user3', '', '', '2019-03-11 14:26:48', 'user5c866cf5e7eff4u30859699', ''),
+('list5c867082995470l38386434', 'item 4', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla par.', 40000, 'location 4', 'active', 'user4', '', '', '2019-03-11 14:28:18', 'user5c866d4faf45f6u27970721', ''),
+('list5c8670b9ec85d7l45661814', 'item 5', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate vlit esse cillum dolore eu fugiat nulla pariatur. ', 60230, 'location 5', 'active', 'user5', '', '', '2019-03-11 14:29:14', 'user5c866d750edaa9u52316509', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `uid` varchar(100) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `firstname` varchar(40) NOT NULL,
+  `lastname` varchar(40) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `hostel` varchar(50) NOT NULL,
+  `rating` int(2) NOT NULL DEFAULT '5',
+  `soldno` int(3) NOT NULL DEFAULT '0',
+  `contactdet` varchar(20) NOT NULL,
+  `lastseen` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `loginattempts` int(2) NOT NULL DEFAULT '0',
+  `img` varchar(120) NOT NULL DEFAULT 'default.png'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`uid`, `username`, `firstname`, `lastname`, `email`, `password`, `hostel`, `rating`, `soldno`, `contactdet`, `lastseen`, `loginattempts`, `img`) VALUES
+('user5c866a3e885c06u36906200', 'admin', 'admin', '', 'admin@iitd.ac.in', '$2y$10$b.G0aOur5aiENpnqULU6JucyxH4HWKekxdRuYf0ma1yPdAwDeVZ/C', 'Hostel 1', 5, 0, '1234567890', '2019-03-11 19:45:27', 0, 'default.png'),
+('user5c866cac65f550u83249111', 'user1', 'random', 'person1 ', 'user1@iitd.ac.in', '$2y$10$0MS40RyV0z16pxNaQ9iQU.Yorr6JIgOpLnzZwY1iWWjEI/gRDz3v6', 'Hostel 1', 5, 0, '012345679', '2019-03-11 19:49:54', 0, 'default.png'),
+('user5c866cc9c7f492u04570183', 'user2', 'random', 'person2 ', 'user2@iitd.ac.in', '$2y$10$0/SwsvVTmNKlR1xpmmK1Dee1.rpM0os0UcD14P55xXyP08DZ3E4o2', 'Hostel 2', 5, 0, '012345679', '2019-03-11 19:50:33', 0, 'default.png'),
+('user5c866cf5e7eff4u30859699', 'user3', 'random', 'person3 ', 'user3@iitd.ac.in', '$2y$10$LkM0s.mC4ZOuombqQXzRWeAbitmjnbRE63RDcVFCN1YTUHb9cWaoa', 'Hostel 3', 5, 0, '012345679', '2019-03-11 19:55:55', 0, 'default.png'),
+('user5c866d4faf45f6u27970721', 'user4', 'random', 'person4 ', 'user4@iitd.ac.in', '$2y$10$6bIxiQdasFx.hMyxzBJjI.5ymh9wDI75wOC2XUJoqoTQQ0OZ0Jt9m', 'Hostel 4', 5, 0, '012345679', '2019-03-11 19:57:10', 0, 'default.png'),
+('user5c866d750edaa9u52316509', 'user5', 'random', 'person5 ', 'user5@iitd.ac.in', '$2y$10$zd1L7YAhnMUFoe47K0c8rOIdE0BNtGArOVOr9mg3vg4H661RDw3s6', 'Hostel 5', 5, 0, '012345679', '2019-03-11 19:58:35', 0, 'default.png');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `listings`
+--
+ALTER TABLE `listings`
+  ADD PRIMARY KEY (`lid`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`uid`);
