@@ -25,8 +25,6 @@ However due to the messed up hosting it is running terrible slow.\
 In the dbconnect.php, change the username and password which is given as ('root','root') to the username and password of your phpmyadmin => ('username','password');\
 For optimum results, run the website on chrome  
 
-\
-\
 ****Login details for IITBazaar****
 I have created 5 users and an admin and 5 demo listings.  
 For user number i, the email is: useri@iitd.ac.in  
