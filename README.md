@@ -18,7 +18,8 @@ I'm adding a ui folder in the images (img) folder in which static screenshots an
 \
 The website is up and running on www.aryangupta.xyz/IITBazaar \
 However due to the messed up hosting it is running terrible slow.\
-To run the site on your location computer, download a php client such as XAMPP or WAMP for windows or MAMP for mac. \
-Then in phpmyadmin, run the sql query in the sql.txt file to create the datebase for the website. \
-Clone the repo and transfer it to the htdocs (or sometimes www) folder of the php client. \
-Finnaly, go to the core folder of this site, then open the dbconnect.php file. \
+1) To run the site on your location computer, download a php client such as XAMPP or WAMP for windows or MAMP for mac. \
+2) Then in phpmyadmin, run the sql query in the sql.txt file to create the datebase for the website. \
+3) Clone the repo and transfer it to the htdocs (or sometimes www) folder of the php client. \
+4) Finnaly, go to the core folder of this site, then open the dbconnect.php file. \
+In the dbconnect.php, change the username and password which is given as ('root','root') to the username and password of your phpmyadmin => ('username','password');
