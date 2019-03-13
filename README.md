@@ -10,7 +10,7 @@ In my submission i've focused on the backend problem statement but also added a 
 Please do check back here on the 13th for an updated readme file.\
 \
 \
-The design document and research document will be available here shortly : \
+The design document and research document are available here : \
 https://drive.google.com/drive/folders/1Qjqe_8tstjJCtIBq52XquIAkeIocvV_Y \
 \
 \
