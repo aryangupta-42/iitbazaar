@@ -30,6 +30,7 @@
       ':pickup'=>$pickup,
       ':lid'=>$lid
     ]);
+    header("location: ../activelistings");
   }
   if(isset($_POST['deletebtn'])){
     $lid = $_POST['lid'];
@@ -38,6 +39,7 @@
       ':lid'=>$lid
     ]);
     unlink("../img/listings/".$lid.".jpg");
+    header("location: ../activelistings");
   }
   // echo(count($res));
 
