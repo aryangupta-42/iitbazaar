@@ -29,6 +29,17 @@
     $namemsg = "Changes Successful";
     header("location: ../settings");
   }
+  if(isset($_POST['changeconbtn'])){
+    $namemsg = "An error occured, Please try again later";
+    $newcon = $_POST['newcon'];
+    $qry = $db->prepare('UPDATE users SET contactdet = :con WHERE uid = :uid');
+    $qry->execute([
+      ":con"=>$newcon,
+      ":uid"=>$_SESSION['user']
+    ]);
+    $namemsg = "Changes Successful";
+    header("location: ../settings");
+  }
   if(isset($_POST['changehostelbtn'])){
     $hostelmsg = "An error occured, Please try again later";
     $hostel = $_POST['hostel'];
@@ -64,7 +75,7 @@
       ":uid"=>$_SESSION['user']
     ]);
     header("location: ../settings");
-    
+
   }
 
  ?>
@@ -115,6 +126,21 @@
 
           </div>
         </form>
+      </div>
+      <div class="settingsection">
+        <div class="sectiontitle">
+          Update Your Contact Number
+        </div>
+        <div class="sectioninp">
+          <form class="" action="#" method="post">
+            <input required class="userinp" type="number" name="newcon" value="<?php echo($userdet[5]) ?>">
+            <br>
+            <button type="submit" name="changeconbtn" class="btn">Confirm</button>
+            <div class="msg">
+              <?php echo($conmsg) ?>
+            </div>
+          </form>
+        </div>
       </div>
       <div class="settingsection" id="lastsec">
         <div class="sectiontitle">
