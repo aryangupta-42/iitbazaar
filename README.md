@@ -17,7 +17,7 @@ https://drive.google.com/drive/folders/1Qjqe_8tstjJCtIBq52XquIAkeIocvV_Y \
 I'm adding a ui folder in the images (img) folder in which static screenshots and a short clip of the site functioning (walkthrough) can be viewed.\
 \
 The website is up and running on www.aryangupta.xyz/IITBazaar \
-However due to the messed up hosting it is running terrible slow.The upload feature especially.\
+However due to the messed up hosting it is running terrible slow. The upload feature especially does not work properly as it requires an image to be uploaded and that takes a lot of time. The settings section of the domain has not been updated with contact detail editting.\
 1) To run the site on your location computer, download a php client such as XAMPP or WAMP for windows or MAMP for mac. \
 2) Then in phpmyadmin, run the sql query in the sql.txt file to create the datebase for the website. \
 3) Clone the repo and transfer it to the htdocs (or sometimes www) folder of the php client. \
